@@ -5,41 +5,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>مصطفى عبده كامل</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <style>
+<style>
+:root {
+      --primary-color: #34b3a0;
+      --secondary-color: #2e4053;
+      --background-color: #f5f7fa;
+      --text-color: #333;
+      --card-bg: #fff;
+      --accent-color: #e74c3c;
+      --hover-color: #2c9c8c;
+    }
     body {
       font-family: 'Cairo', 'Arial', sans-serif;
-      background-color: #f0f5fa;
-      color: #333;
+      background-color: var(--background-color);
+      color: var(--text-color);
       line-height: 1.7;
       margin: 0;
       padding: 0;
       direction: rtl;
     }
-    .container {
-      max-width: 900px;
+.container {
+      max-width: 1000px;
       margin: 40px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      background: var(--card-bg);
+      padding: 40px 50px 60px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 5px solid var(--primary-color);
+      border-bottom: 5px solid var(--primary-color);
+    }
+    .container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
     }
     h1, h2 {
-      color: #2c3e50;
-      border-bottom: 2px solid #3498db;
-      padding-bottom: 8px;
-      margin-top: 25px;
+      color: var(--secondary-color);
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 12px;
+      font-size: 2.2rem;
+      margin-top: 30px;
+      position: relative;
+      font-weight: 700;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    h1::after, h2::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      right: 0;
+      width: 30%;
+      height: 3px;
+      background-color: var(--accent-color);
+      transition: width 0.5s ease;
+    }
+    h1:hover::after, h2:hover::after {
+      width: 100%;
     }
     a {
-      color: #3498db;
+      color: var(--primary-color);
       text-decoration: none;
-      transition: color 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 2px 0;
     }
     a:hover {
-      text-decoration: underline;
+      color: #2980b9;
+    }
+    a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      right: 0;
+      background-color: currentColor;
+      transition: width 0.3s ease;
+    }
+    a:hover::after {
+      width: 100%;
     }
     ul {
       padding-right: 20px;
       list-style-type: square;
+    }
+    
+    li {
+      padding: 5px 0;
+      transition: transform 0.2s ease;
+    }
+    
+    li:hover {
+      transform: translateX(-5px);
     }
     
     .profile-section {
@@ -47,38 +104,90 @@
       align-items: center;
       gap: 30px;
       margin-bottom: 30px;
+      background: linear-gradient(to left, rgba(52, 179, 160, 0.15), transparent);
+      padding: 20px;
+      border-radius: 15px;
     }
     
 .profile-image {
       width: 250px;
       height: 250px;
-      border-radius: 50%;
+      border-radius: 15px;
       object-fit: cover;
-      border: 5px solid #3498db;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      border: 5px solid var(--primary-color);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       image-rendering: high-quality;
       filter: contrast(1.1) brightness(1.1) saturate(1.1);
+    }
+    .profile-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.4);
     }
     
     .project-image {
       width: 100%;
-      border-radius: 10px;
-      margin: 15px 0;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      border-radius: 15px;
+      margin: 20px 0;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      filter: brightness(0.95);
+    }
+    .project-image:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      filter: brightness(1.05);
     }
     
     .social-links {
       display: flex;
-      gap: 15px;
+      gap: 20px;
+      padding: 0;
+      margin-top: 25px;
     }
     
     .social-links li {
       list-style: none;
+      transition: transform 0.3s ease;
+    }
+    
+    .social-links li:hover {
+      transform: translateY(-5px);
+    }
+    
+    .social-links a {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 8px;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--hover-color);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+      transform: translateY(-3px);
     }
     
     @media (max-width: 768px) {
       .profile-section {
         flex-direction: column;
+        text-align: center;
+      }
+      .container {
+        margin: 20px;
+        padding: 25px;
+      }
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
+      .social-links li {
+        width: 100%;
         text-align: center;
       }
     }
@@ -90,9 +199,9 @@
       <img src="https://cdn.discordapp.com/attachments/1211107348031086623/1372993498302779546/1739993510708.jpg?ex=6856efd6&is=68559e56&hm=5cf84e7f09cf893073dbbc3c84104d0e44c7c872fb3f6d892be5c958eccf232e&" alt="مصطفى عبده كامل" class="profile-image">
       <div>
         <h1>مصطفى عبده كامل أحمد</h1>
-        <p>
+      <p>
           طالب في <strong>جامعة أسيوط الجديدة التكنولوجية</strong>، قسم تكنولوجيا المعلومات (IT).
-          لدي شغف بالتقنية والعمل الجماعي، وأسعى للمساهمة في مشاريع تخدم المجتمع.
+          لدي شغف بالتقنية والعمل الجماعي، وأسعى للمساهمة في مشاريع تخدم المجتمع وتحدث فرقاً إيجابياً.
         </p>
       </div>
     </div>
@@ -120,7 +229,7 @@
     <ul class="social-links">
       <li><a href="https://www.facebook.com/AL1King1" target="_blank">Facebook</a></li>
       <li><a href="https://www.instagram.com/mustafa_abdo44/" target="_blank">Instagram</a></li>
-      <li><a href="tswe.eh123@gmail.com">البريد الإلكتروني</a></li>
+<li><a href="mailto:tswe.eh123@gmail.com">البريد الإلكتروني</a></li>
     </ul>
   </div>
 </body>
